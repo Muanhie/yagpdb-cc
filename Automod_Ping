@@ -1,0 +1,13 @@
+{{/* Trigger Type: Regex, Trigger: .* */}}
+
+{{/* Config */}}
+{{ $reportRole := 961367243126636645 }}
+{{ $reportChannel := 988488214425784380 }}
+{{ $botRole := 823566789581078608 }}
+{{/* End */}}
+
+{{ if eq .Channel.ID $reportChannel }}
+    {{ if not (or (hasRoleID $reportRole) (hasRoleID $botRole) ) }}
+        {{ sendMessageNoEscape $reportChannel (mentionRoleID $reportRole) }}
+        {{ end }}
+{{ end }}
