@@ -1,4 +1,6 @@
-{{/* Trigger Type: Regex, Trigger: .* */}}
+{{/*    Trigger Type: Regex
+        Trigger: .* 
+*/}}
 
 {{/* Config */}}
 {{ $reportRole := 961367243126636645 }}
