@@ -2,14 +2,18 @@
         Trigger: .* 
 */}}
 
-{{/* Config */}}
+{{/* Config: Add, remove or chnage values as needed */}}
 {{ $reportRole := 961367243126636645 }}
 {{ $reportChannel := 988488214425784380 }}
 {{ $botRole := 823566789581078608 }}
+{{/* Staff Roles */}}
+{{ $modRole := 878318264843894834 }}
+{{/* Senior Staff Roles */}}
+{{ $adminRole := 805195474130567189 }}
 {{/* End */}}
 
 {{ if eq .Channel.ID $reportChannel }}
-    {{ if not (or (hasRoleID $reportRole) (hasRoleID $botRole) ) }}
+    {{ if not (or (hasRoleID $reportRole) (hasRoleID $modRole) (hasRoleID $adminRole) (hasRoleID $botRole) ) }}
         {{ sendMessageNoEscape $reportChannel (mentionRoleID $reportRole) }}
         {{ end }}
 {{ end }}
